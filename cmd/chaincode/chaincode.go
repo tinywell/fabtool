@@ -25,6 +25,8 @@ func Cmd() *cobra.Command {
 	ChaincodeCMD.AddCommand(installCmd())
 	ChaincodeCMD.AddCommand(infoCmd())
 	ChaincodeCMD.AddCommand(instantiateCmd())
-	ChaincodeCMD.PersistentFlags().StringVarP(&config, "config", "c", "config.yaml", "配置文件路径")
+	ChaincodeCMD.AddCommand(invokeCmd())
+	ChaincodeCMD.AddCommand(queryCmd())
+	ChaincodeCMD.PersistentFlags().StringVarP(&config, "config", "", "config.yaml", "配置文件路径")
 	return &ChaincodeCMD
 }

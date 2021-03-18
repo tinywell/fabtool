@@ -18,6 +18,17 @@ type CCParam struct {
 	Init      bool
 }
 
+// ExecuteReq 合约执行请求参数
+type ExecuteReq struct {
+	User         Admin
+	Channel      string
+	Chaincode    string
+	Fcn          string
+	Args         [][]byte
+	TransientMap map[string][]byte
+	Peers        []string
+}
+
 // Admin ...
 type Admin struct {
 	User string
@@ -70,4 +81,13 @@ type LCCommitedInfo struct {
 	ChannelConfigPolicy string
 	InitRequired        bool
 	Approvals           []Approval
+}
+
+// CCResult 合约执行结果
+type CCResult struct {
+	TxID      string
+	Status    int32
+	ValidCode string
+	Payload   []byte
+	Message   string
 }
